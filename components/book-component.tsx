@@ -33,7 +33,7 @@ export default function BookCard({ book }: BookCardProps) {
     }, [book.tags]); // This effect will run whenever book.tags changes
 
     return (
-        <a href={book.link} target="_blank" rel="noopener noreferrer" className="book-card w-full flex items-center p-4 mb-4 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300">
+        <a href={book.link} target="_blank" rel="noopener noreferrer" className="book-card w-full flex items-center p-3 mb-4 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300">
             <img src={book.thumbnail} alt={book.title} className="book-thumbnail w-24 h-32 object-cover rounded-md mr-4" />
             <div className="book-details flex flex-col">
                 <h3 className="book-title text-xl font-semibold">{book.title}</h3>
