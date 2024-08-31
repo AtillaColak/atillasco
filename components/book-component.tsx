@@ -26,7 +26,7 @@ export default function BookCard({ book }: BookCardProps) {
 
     useEffect(() => {
         const styles = book.tags.map(tag => {
-            const style = `tag text-sm font-medium px-2 py-1 mr-2 mb-2 rounded-full ${getTagColor(tag)}`;
+            const style = `tag text-sm font-medium px-1 py-1 mr-2 mb-2 rounded-full ${getTagColor(tag)}`;
             return style;
         });
         setTagStyles(styles);
