@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 interface BookCardProps {
     book: book;
 }
-
+//TODO: still missing responsiveness. especially on the edges of book cards and they get lost in smaller screens behing the header/footers
 // for some reason, when I move this to utils and import it from there, it doesn't work. Tailwind caching or compilation issue?
 const getTagColor = (tag: string): string => {
     const tagColors: { [key: string]: string } = {
