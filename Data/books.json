@@ -1,5 +1,11 @@
 [
     {
+        "title": "Chip Wars By Chris Miller",
+        "link": "/ChipWars.pdf",
+        "tags": ["tech", "economics", "politics"], 
+        "thumbnail": "https://www.charterworks.com/content/images/size/w1000/2022/12/chip-warT.png"
+    },
+    {
         "title": "Yuval Noah Harrari - Summarized", 
         "link": "/yuval.pdf", 
         "tags": ["history", "tech", "economics"], 

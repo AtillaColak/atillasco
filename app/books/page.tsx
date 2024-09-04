@@ -9,39 +9,35 @@ import BookCard from "@/components/book-component";
 import booksData from "@/Data/books.json";
 
 export default function Books() {
-    const [books, setBooks] = useState<book[]>([]);
-    const [searchQuery, setSearchQuery] = useState("");
+  const [books, setBooks] = useState<book[]>([]);
 
   useEffect(() => {
-    // Define an async function to fetch the data
-    const fetchBooksData = async () => {
-      try {
-        // Since booksData is imported, you can directly set it
-        setBooks(booksData);
-      } catch (error) {
-        console.error("Failed to load books data:", error);
-      }
-    };
+      const fetchBooksData = async () => {
+          try {
+              setBooks(booksData);
+          } catch (error) {
+              console.error("Failed to load books data:", error);
+          }
+      };
 
-    fetchBooksData(); // Call the async function
-  }, []); // Empty dependency array to run effect only once
-
+      fetchBooksData();
+  }, []);
 
   return (
-    <AuthorizedLayout>
-        <HeaderNavBar />
-        <div className="h-full w-full flex flex-col items-center justify-center">
-                {books.length === 0 ? (
-                    <p>No books found</p>
-                ) : (
-                    <div className="book-list w-full max-w-2xl">
-                        {books.map((book) => (
-                            <BookCard key={book.title} book={book} />
-                        ))}
-                    </div>
-                )}
-            </div>
-        <Footer />
-    </AuthorizedLayout>
-    );
+      <AuthorizedLayout>
+          <HeaderNavBar />
+          <div className="h-full w-full flex flex-col items-center justify-center pt-20 overflow-y-auto"> {/* Added pt-20 and overflow-y-auto */}
+              {books.length === 0 ? (
+                  <p>No books found</p>
+              ) : (
+                  <div className="book-list w-full max-w-2xl">
+                      {books.map((book) => (
+                          <BookCard key={book.title} book={book} />
+                      ))}
+                  </div>
+              )}
+          </div>
+          <Footer />
+      </AuthorizedLayout>
+  );
 }
