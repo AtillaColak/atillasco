@@ -26,7 +26,7 @@ export default function Books() {
   return (
       <AuthorizedLayout>
           <HeaderNavBar />
-          <div className="h-full w-full flex flex-col items-center justify-center pt-40 md:pt-20 overflow-y-auto"> {/* Added pt-20 and overflow-y-auto */}
+          <div className="h-full w-full flex flex-col items-center justify-center pt-24 md:pt-20 overflow-y-auto"> {/* Added pt-20 and overflow-y-auto */}
               {books.length === 0 ? (
                   <p>No books found</p>
               ) : (

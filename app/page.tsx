@@ -8,7 +8,7 @@ export default function AboutMe(){
     return (        
         <AuthorizedLayout>
             <HeaderNavBar />
-            <div className="bg-black h-full w-full flex flex-col items-center justify-center">
+            <div className="bg-black h-full w-full flex flex-col items-center justify-center pt-16 md:pt-0">
                 <div className="flex flex-col items-center justify-center">
                     <AboutUs />
                 </div>
