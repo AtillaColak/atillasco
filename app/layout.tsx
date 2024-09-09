@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "AttilaTheHun",
   description: "Personal website of AtillaColak - took 25 minutes",
-  keywords: ["AtillaColak", "personal website", "book summaries", "Atilla Colak personal website", "portfolio", "software engineer"],
+  keywords: ["AtillaColak", "Atilla Colak", "personal website", "book summaries", "Atilla Colak personal website", "portfolio", "software engineer"],
   authors: [{name: "Atilla Colak"}],
 };
 
