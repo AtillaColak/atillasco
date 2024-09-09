@@ -8,7 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "AttilaTheHun",
-  description: "took 25 minutes",
+  description: "Personal website of AtillaColak - took 25 minutes",
+  keywords: ["AtillaColak", "personal website", "book summaries", "Atilla Colak personal website", "portfolio", "software engineer"],
+  authors: [{name: "Atilla Colak"}],
 };
 
 export default function RootLayout({
@@ -18,6 +20,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="title" content="AtillaColak - Personal Website" />
+        <meta name="description" content="The personal website of AtillaColak - a creative portfolio" />
+        <meta name="keywords" content="AtillaColak, personal website, portfolio, web developer, creative portfolio" />
+        <meta name="author" content="AtillaColak" />
+        <meta name="robots" content="index, follow" />
+        
+        {/* Open Graph tags for social media previews */}
+        <meta property="og:title" content="AtillaColak - Personal Website" />
+        <meta property="og:description" content="Explore AtillaColak's personal projects and creative works" />
+        <meta property="og:url" content="https://atillas.co" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AtillaColak - Personal Website" />
+        <meta name="twitter:description" content="My personal websites and book notes" />
+
+        {/* Structured Data for SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "AtillaColak",
+            "url": "https://atillas.co",
+            "sameAs": [
+              "https://www.linkedin.com/in/atilla-colak/"
+            ],
+            "jobTitle": "Software Engineer",
+            "description": "Personal website of AtillaColak - Maximus",
+          })}
+        </script>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
