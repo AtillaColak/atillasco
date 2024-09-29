@@ -1,5 +1,11 @@
 [
     {
+        "title": "A Random Walk Down Wall Street By Burton Malkiel",
+        "link": "/A_Random_Walk_Down_Wall_Street.pdf",
+        "tags": ["finance", "economics"], 
+        "thumbnail": "https://api.bruna.nl/images/active/carrousel/fullsize/9781324035435_front.jpg"
+    },
+    {
         "title": "Chip Wars By Chris Miller",
         "link": "/ChipWars.pdf",
         "tags": ["tech", "economics", "politics"], 

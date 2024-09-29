@@ -9,18 +9,18 @@ interface BookCardProps {
 // for some reason, when I move this to utils and import it from there, it doesn't work. Tailwind caching or compilation issue?
 const getTagColor = (tag: string): string => {
     const tagColors: { [key: string]: string } = {
-        tech: "bg-blue-200 text-blue-800",
-        economics: "bg-green-200 text-green-800",
-        history: "bg-purple-200 text-purple-800",
-        business: "bg-yellow-200 text-yellow-800",
-        marketing: "bg-pink-200 text-pink-800",
-        psychology: "bg-teal-200 text-teal-800",
-        politics: "bg-rose-200 text-rose-800" 
-        // TODO: Add more tag-color mappings -> POLITICS, FINANCE, STATISTICS
+        tech: "bg-blue-700 text-blue-100",
+        economics: "bg-green-700 text-green-100",
+        history: "bg-purple-700 text-purple-100",
+        business: "bg-yellow-700 text-yellow-100",
+        marketing: "bg-pink-700 text-pink-100",
+        psychology: "bg-teal-700 text-teal-100",
+        politics: "bg-rose-700 text-rose-100", 
+        finance: "bg-violet-700 text-violet-100",
+        statistics: "bg-orange-700 text-orange-100"
     };
-    return tagColors[tag] || "bg-gray-200 text-gray-800"; // Default color if no match is found
+    return tagColors[tag.toLowerCase()] || "bg-gray-700 text-gray-100";
 };
-
 
 export default function BookCard({ book }: BookCardProps) {
     const [tagStyles, setTagStyles] = useState<string[]>([]);

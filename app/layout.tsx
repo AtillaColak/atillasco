@@ -18,6 +18,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "AtillaColak",
+    "url": "https://atillas.co",
+    "sameAs": [
+      "https://www.linkedin.com/in/atilla-colak/"
+    ],
+    "jobTitle": "Software Engineer",
+    "description": "Personal website of AtillaColak - Maximus",
+  };
+
   return (
     <html lang="en">
       <head>
@@ -32,26 +44,17 @@ export default function RootLayout({
         <meta property="og:description" content="Explore AtillaColak's personal projects and creative works" />
         <meta property="og:url" content="https://atillas.co" />
         <meta property="og:type" content="website" />
-
+        
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AtillaColak - Personal Website" />
         <meta name="twitter:description" content="My personal websites and book notes" />
-
+        
         {/* Structured Data for SEO */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "AtillaColak",
-            "url": "https://atillas.co",
-            "sameAs": [
-              "https://www.linkedin.com/in/atilla-colak/"
-            ],
-            "jobTitle": "Software Engineer",
-            "description": "Personal website of AtillaColak - Maximus",
-          })}
-        </script>
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
