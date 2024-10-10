@@ -1,5 +1,11 @@
 [
     {
+        "title": "Good AI Articles",
+        "link": "https://docs.google.com/document/d/1HiJRAqiFvzjKzdcGRd5GQzHoh2tQfAtC1hGauJSrA-o/edit?usp=sharing",
+        "tags": ["tech"], 
+        "thumbnail": "https://images2.alphacoders.com/134/1347232.png"
+    },
+    {
         "title": "A Random Walk Down Wall Street By Burton Malkiel",
         "link": "/A_Random_Walk_Down_Wall_Street.pdf",
         "tags": ["finance", "economics"], 
