@@ -38,6 +38,7 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
   const [volume, setVolume] = useState(1)
   const [isMuted, setIsMuted] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
+  const previousVolumeRef = useRef(1)
 
   useEffect(() => {
     const calculateDurations = async () => {
@@ -67,6 +68,9 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
         setCurrentTime(0)
         setIsPlaying(false)
       })
+
+      // Set initial volume
+      audioRef.current.volume = isMuted ? 0 : volume
     }
     return () => {
       if (audioRef.current) {
@@ -75,6 +79,13 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
       }
     }
   }, [currentTrack])
+
+  useEffect(() => {
+    if (audioRef.current) {
+      const volumeToSet = isMuted ? 0 : volume
+      audioRef.current.volume = volumeToSet
+    }
+  }, [volume, isMuted])
 
   const updateProgress = () => {
     if (audioRef.current) {
@@ -99,14 +110,37 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
     }
   }
 
+  const restartCurrentTrack = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0
+      setCurrentTime(0)
+      if (!isPlaying) {
+        setIsPlaying(true)
+        audioRef.current.play()
+      }
+    }
+  }
+
   const nextTrack = () => {
-    setCurrentTrack((currentTrack + 1) % playlist.tracks.length)
-    setIsPlaying(true)
+    if(currentTrack != playlist.tracks.length - 1){
+        setCurrentTrack((currentTrack + 1))
+        setCurrentTime(0)
+        setIsPlaying(true)    
+    }
+    else{
+        restartCurrentTrack()
+    }
   }
 
   const prevTrack = () => {
-    setCurrentTrack((currentTrack - 1 + playlist.tracks.length) % playlist.tracks.length)
-    setIsPlaying(true)
+    if(currentTrack != 0){
+        setCurrentTrack((currentTrack - 1))
+        setCurrentTime(0)
+        setIsPlaying(true)    
+    }
+    else{
+        restartCurrentTrack()
+    }
   }
 
   const onProgressChange = (value: number[]) => {
@@ -117,23 +151,35 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
   }
 
   const onVolumeChange = (value: number[]) => {
+    const newVolume = value[0]
+    setVolume(newVolume)
+    
+    if (isMuted && newVolume > 0) {
+      setIsMuted(false)
+    }
+
+    if (newVolume === 0) {
+      setIsMuted(true)
+    }
+
     if (audioRef.current) {
-      const newVolume = value[0]
+      // Directly set the volume on the audio element
       audioRef.current.volume = newVolume
-      setVolume(newVolume)
-      setIsMuted(newVolume === 0)
     }
   }
 
   const toggleMute = () => {
     if (audioRef.current) {
       if (isMuted) {
-        audioRef.current.volume = volume
-        setIsMuted(false)
+        // Unmute: Restore previous volume
+        setVolume(previousVolumeRef.current)
+        audioRef.current.volume = previousVolumeRef.current
       } else {
+        // Mute: Store current volume and set to 0
+        previousVolumeRef.current = volume
         audioRef.current.volume = 0
-        setIsMuted(true)
       }
+      setIsMuted(!isMuted)
     }
   }
 
@@ -151,7 +197,7 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
             <div className="flex items-center p-4 border-b border-[#AF8260]">
               <div className="w-16 h-16 mr-4 bg-[#803D3B] rounded-md overflow-hidden">
                 <img 
-                  src="https://static.wikia.nocookie.net/natm/images/b/bc/Attilla.jpg" 
+                  src="https://static.wikia.nocookie.net/natm/images/b/bc/Attilla.jpg"
                   alt="Album cover" 
                   className="w-full h-full object-cover"
                 />
@@ -225,15 +271,14 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
               </div>
             </div>
             <div className="max-h-48 overflow-y-auto custom-scroll">
-            {/* Custom scroll to hide the scrollbar while keeping the functionality */}
             <style jsx>{`
                 .custom-scroll {
-                    scrollbar-width: none; /* Firefox */
-                    -ms-overflow-style: none;  /* Edge */
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
                 }
 
                 .custom-scroll::-webkit-scrollbar {
-                    display: none; /* WebKit (Chrome, Safari) */
+                    display: none;
                 }
             `}</style>
               {playlist.tracks.map((track, index) => (

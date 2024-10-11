@@ -160,7 +160,7 @@ export default function HeaderNavBar() {
               <Input
                 type="search"
                 placeholder="Search Summaries..."
-                className="pl-10 pr-4 py-2 rounded-full bg-gray-800 text-white w-full"
+                className="pl-10 pr-4 py-2 rounded-full bg-gray-800 text-white w-full text-base"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
