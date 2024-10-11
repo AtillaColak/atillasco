@@ -3,12 +3,12 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-950 text-white py-4 w-full">
-      <div className="container mx-auto flex justify-center items-center p-4">
-        <div className="text-sm mr-16 text-hs-secondary">
-          All rights reserved, &copy; 2024 AttilaTheHun. 
+    <footer className="bg-gray-950 text-white py-4 w-full mt-auto">
+      <div className="container mx-auto flex flex-col sm:flex-row justify-center items-center p-4 space-y-4 sm:space-y-0">
+        <div className="text-sm sm:mr-16 text-hs-secondary text-center sm:text-left">
+          All rights reserved, &copy; 2024 Atilla Colak. 
         </div>
-        <div className="flex space-x-4 ">
+        <div className="flex space-x-4">
           <a
             href="https://github.com/AtillaColak"
             target="_blank"

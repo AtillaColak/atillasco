@@ -23,6 +23,10 @@ const AboutUs = () => {
           </span>
         ))}
         <br />
+        <br />
+        Here, you will find my summaries of stuff I read.
+        <br/> 
+        <br />
         <a
           href="https://lichess.org/@/atillasc"
           target="_blank"
