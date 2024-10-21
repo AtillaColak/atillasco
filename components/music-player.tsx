@@ -191,7 +191,7 @@ export default function SpotifyPlayer({ isOpen, onClose }: { isOpen: boolean, on
         onEnded={nextTrack}
         autoPlay={isPlaying}
       />
-      <Dialog open={isOpen} onOpenChange={onClose}>
+      <Dialog open={isOpen} onOpenChange={onClose} modal={false}>
         <DialogContent className="sm:max-w-[500px] p-0">
           <div className="flex flex-col bg-[#322C2B] text-[#E4C59E] rounded-lg">
             <div className="flex items-center p-4 border-b border-[#AF8260]">

@@ -8,7 +8,7 @@ const AboutUs = () => {
   const words = text.split(' ');
 
   return (
-    <div className="mt-6 flex flex-col items-center justify-center bg-black text-white p-4">
+    <div className="mt-6 w-full flex flex-col items-center justify-center bg-gray-950 text-white p-4">
       <h1 className="text-4xl font-bold mb-4 transition-all duration-700 hover:text-hs-secondary">
         About Me
       </h1>
@@ -22,10 +22,6 @@ const AboutUs = () => {
             {word}
           </span>
         ))}
-        <br />
-        <br />
-        Here, you will find my summaries of stuff I read.
-        <br/> 
         <br />
         <a
           href="https://lichess.org/@/atillasc"
