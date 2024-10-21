@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+})
 
 export const metadata: Metadata = {
   title: "AttilaTheHun",
@@ -56,7 +60,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={raleway.className}>{children}</body>
     </html>
   );
 }
