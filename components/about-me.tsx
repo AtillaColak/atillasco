@@ -1,28 +1,25 @@
 import React from 'react';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify, faLetterboxd } from '@fortawesome/free-brands-svg-icons';
 
 const AboutUs = () => {
-  const text = "I love coding, music, and chess.";
-  const words = text.split(' ');
-
   return (
     <div className="mt-6 w-full flex flex-col items-center justify-center bg-gray-950 text-white p-4">
       <h1 className="text-4xl font-bold mb-4 transition-all duration-700 hover:text-hs-secondary">
         About Me
       </h1>
-      <img src="https://cdnb.artstation.com/p/assets/images/images/049/129/061/original/peacox-studio-gladiator-idle-animation.gif?1651757410" alt="Marshadow" width={256} height={256} className="mb-4" />
+      <div className="w-full max-w-4xl mb-4">
+        <div className="relative w-full pb-[56.25%]"> {/* 16:9 aspect ratio */}
+          <iframe 
+            className="absolute top-0 left-0 w-full h-full rounded-lg"
+            src="https://www.youtube.com/embed/W2_J7nvHyD0" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
       <p className="text-lg max-w-md text-center">
-        {words.map((word, index) => (
-          <span
-            key={index}
-            className="inline-block transition-all duration-500 hover:text-cyan-900 mx-1"
-          >
-            {word}
-          </span>
-        ))}
-        <br />
         <a
           href="https://lichess.org/@/atillasc"
           target="_blank"
