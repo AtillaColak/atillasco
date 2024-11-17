@@ -11,7 +11,7 @@ const raleway = Raleway({
 })
 
 export const metadata: Metadata = {
-  title: "AttilaTheHun",
+  title: "Atilla's Website",
   description: "Personal website of AtillaColak - took 25 minutes",
   keywords: ["AtillaColak", "Atilla Colak", "personal website", "book summaries", "Atilla Colak personal website", "portfolio", "software engineer"],
   authors: [{name: "Atilla Colak"}],
