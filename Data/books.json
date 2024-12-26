@@ -1,5 +1,11 @@
 [
     {
+        "title": "Net Positive", 
+        "link": "/pdfs/NetPositive.pdf", 
+        "tags": ["business", "economics"], 
+        "thumbnail": "https://www.netimpactamsterdam.nl/wp-content/uploads/2022/01/PP_memesRender_1.jpg"
+    },
+    {
         "title": "Good AI Articles",
         "link": "https://docs.google.com/document/d/1HiJRAqiFvzjKzdcGRd5GQzHoh2tQfAtC1hGauJSrA-o/edit?usp=sharing",
         "tags": ["tech"], 

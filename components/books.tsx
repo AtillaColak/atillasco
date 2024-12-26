@@ -40,7 +40,7 @@ export default function Books() {
 
   return (
     <div className="min-h-[650px] bg-black text-white flex flex-col">
-      <div className="flex-grow flex flex-col items-center pt-24 md:pt-20 pb-16">
+      <div className="min-h-[500px] flex-grow flex flex-col items-center pt-24 md:pt-20 pb-16">
         <h1 className="text-2xl font-semibold mb-16">
           Stuff I Read (and my Summaries)
         </h1>
