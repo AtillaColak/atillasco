@@ -18,7 +18,8 @@ const getTagColor = (tag: string): string => {
         politics: "bg-rose-700 text-rose-100", 
         finance: "bg-violet-700 text-violet-100",
         statistics: "bg-orange-700 text-orange-100",
-        physics: "bg-fuchsia-700 text-fuchsia-100"
+        physics: "bg-fuchsia-700 text-fuchsia-100", 
+        philosophy : "bg-lime-700 text-lime-100"
     };
     return tagColors[tag.toLowerCase()] || "bg-gray-700 text-gray-100";
 };

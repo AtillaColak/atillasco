@@ -1,5 +1,11 @@
 [
     {
+        "title": "Age of AI", 
+        "link": "/pdfs/AgeofAI.pdf",
+        "tags": ["tech", "philosophy"],
+        "thumbnail": "https://m.media-amazon.com/images/I/61X4hUf0-oL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
         "title": "Net Positive", 
         "link": "/pdfs/NetPositive.pdf", 
         "tags": ["business", "economics"], 
