@@ -8,15 +8,15 @@ const AboutUs = () => {
       <h1 className="text-4xl font-bold mb-4 transition-all duration-700 hover:text-hs-secondary">
         About Me
       </h1>
-      <div className="w-full max-w-4xl mb-4">
-        <div className="relative w-full pb-[56.25%]"> {/* 16:9 aspect ratio */}
-          <iframe 
-            className="absolute top-0 left-0 w-full h-full rounded-lg"
-            src="https://www.youtube.com/embed/W2_J7nvHyD0" 
-            title="YouTube video player" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
+      <div className="w-full flex justify-center items-center mb-4">
+        <div
+          className="w-[300px] h-[300px] overflow-hidden rounded-lg flex justify-center items-center bg-black"
+        >
+          <img
+            src="https://cdnb.artstation.com/p/assets/images/images/049/129/061/original/peacox-studio-gladiator-idle-animation.gif?1651757410"
+            alt="GIF Animation"
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
       <p className="text-lg max-w-md text-center">
@@ -34,7 +34,7 @@ const AboutUs = () => {
           href="https://open.spotify.com/user/gs123321?si=7de625a9f3194bf1"
           target="_blank"
           rel="noopener noreferrer"
-          className=" transition-all duration-700 hover:text-green-500"
+          className="transition-all duration-700 hover:text-green-500"
         >
           <FontAwesomeIcon icon={faSpotify} size="2x" />
         </a>
@@ -42,7 +42,7 @@ const AboutUs = () => {
           href="https://letterboxd.com/Att1laTheHun/"
           target="_blank"
           rel="noopener noreferrer"
-          className=" transition-all duration-700 hover:text-yellow-500"
+          className="transition-all duration-700 hover:text-yellow-500"
         >
           <FontAwesomeIcon icon={faLetterboxd} size="2x" />
         </a>
