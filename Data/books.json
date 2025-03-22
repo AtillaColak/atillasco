@@ -6,6 +6,12 @@
         "thumbnail": "https://m.media-amazon.com/images/I/61X4hUf0-oL._AC_UF1000,1000_QL80_.jpg"
     },
     {
+        "title": "The Psychology of Money",
+        "link": "/pdfs/Psychology-of-Money.pdf", 
+        "tags": ["finance", "philosophy"], 
+        "thumbnail": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.nl%2FPsychology-Money-Timeless-lessons-happiness-ebook%2Fdp%2FB084HJSJJ2&psig=AOvVaw3P5nbqcKn8EqlMBMNnT8nF&ust=1742767528550000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCKjZ4o7ZnowDFQAAAAAdAAAAABAE"
+    },
+    {
         "title": "Net Positive", 
         "link": "/pdfs/NetPositive.pdf", 
         "tags": ["business", "economics"], 
