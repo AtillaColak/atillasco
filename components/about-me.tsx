@@ -21,7 +21,7 @@ const AboutUs = () => {
       </div>
       <p className="text-lg max-w-md text-center">
         <a
-          href="https://lichess.org/@/atillasc"
+          href="https://lichess.org/@/rafari"
           target="_blank"
           rel="noopener noreferrer"
           className="underline transition-all duration-700 hover:text-red-500"
