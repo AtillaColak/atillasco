@@ -1,55 +1,76 @@
-import React from "react";
-import { book } from "@/Models/books";
-import { useState, useEffect } from "react";
+"use client"
+import type { book } from "@/Models/books"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 
 interface BookCardProps {
-    book: book;
+  book: book
 }
-//TODO: still missing responsiveness. especially on the edges of book cards and they get lost in smaller screens behing the header/footers
-// for some reason, when I move this to utils and import it from there, it doesn't work. Tailwind caching or compilation issue?
+
+// Updated tag colors for light theme with maroon accents
 const getTagColor = (tag: string): string => {
-    const tagColors: { [key: string]: string } = {
-        tech: "bg-blue-700 text-blue-100",
-        economics: "bg-green-700 text-green-100",
-        history: "bg-purple-700 text-purple-100",
-        business: "bg-yellow-700 text-yellow-100",
-        marketing: "bg-pink-700 text-pink-100",
-        psychology: "bg-teal-700 text-teal-100",
-        politics: "bg-rose-700 text-rose-100", 
-        finance: "bg-violet-700 text-violet-100",
-        statistics: "bg-orange-700 text-orange-100",
-        physics: "bg-fuchsia-700 text-fuchsia-100", 
-        philosophy : "bg-lime-700 text-lime-100"
-    };
-    return tagColors[tag.toLowerCase()] || "bg-gray-700 text-gray-100";
-};
+  const tagColors: { [key: string]: string } = {
+    tech: "bg-blue-100 text-blue-800 border border-blue-300",
+    economics: "bg-green-100 text-green-800 border border-green-300",
+    history: "bg-purple-100 text-purple-800 border border-purple-300",
+    business: "bg-yellow-100 text-yellow-800 border border-yellow-300",
+    marketing: "bg-pink-100 text-pink-800 border border-pink-300",
+    psychology: "bg-teal-100 text-teal-800 border border-teal-300",
+    politics: "bg-rose-100 text-rose-800 border border-rose-300",
+    finance: "bg-violet-100 text-violet-800 border border-violet-300",
+    statistics: "bg-orange-100 text-orange-800 border border-orange-300",
+    physics: "bg-fuchsia-100 text-fuchsia-800 border border-fuchsia-300",
+    philosophy: "bg-lime-100 text-lime-800 border border-lime-300",
+  }
+  return tagColors[tag.toLowerCase()] || "bg-gray-100 text-gray-800 border border-gray-300"
+}
 
 export default function BookCard({ book }: BookCardProps) {
-    const [tagStyles, setTagStyles] = useState<string[]>([]);
+  const [tagStyles, setTagStyles] = useState<string[]>([])
 
-    useEffect(() => {
-        const styles = book.tags.map(tag => {
-            const style = `tag text-sm font-medium px-1 py-1 mr-2 mb-2 rounded-full ${getTagColor(tag)}`;
-            return style;
-        });
-        setTagStyles(styles);
-    }, [book.tags]); // This effect will run whenever book.tags changes
+  useEffect(() => {
+    const styles = book.tags.map((tag) => {
+      const style = `tag text-xs font-medium px-2 py-1 mr-2 mb-2 rounded-full ${getTagColor(tag)}`
+      return style
+    })
+    setTagStyles(styles)
+  }, [book.tags])
 
-    return (
-        <a href={book.link} target="_blank" rel="noopener noreferrer" className="book-card w-full flex items-center p-3 mb-4 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300">
-            <img src={book.thumbnail} alt={book.title} className="book-thumbnail w-24 h-32 object-cover rounded-md mr-4" />
-            <div className="book-details flex flex-col">
-                <h3 className="book-title text-xl font-semibold">{book.title}</h3>
-                <div className="book-tags mt-2">
-                    {book.tags.map((tag, index) => (
-                        <span 
-                            key={index} 
-                            className={tagStyles[index]}
-                            >{tag}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </a>
-    );
-};
+  return (
+    <motion.div
+      whileHover={{
+        scale: 1.03,
+        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      }}
+      transition={{ duration: 0.2 }}
+      className="relative"
+    >
+      <a
+        href={book.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="book-card w-full flex flex-col sm:flex-row items-center p-4 rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-maroon-600"
+        style={{ borderLeftColor: "#8B0000" }}
+      >
+        <div className="book-thumbnail-container relative mb-4 sm:mb-0 sm:mr-4">
+          <img
+            src={book.thumbnail || "/placeholder.svg"}
+            alt={book.title}
+            className="book-thumbnail w-32 h-44 sm:w-24 sm:h-32 object-cover rounded-md shadow-md"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-md opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div className="book-details flex flex-col w-full">
+          <h3 className="book-title text-xl font-semibold text-gray-800 mb-2">{book.title}</h3>
+          <div className="book-tags flex flex-wrap">
+            {book.tags.map((tag, index) => (
+              <span key={index} className={tagStyles[index]}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </a>
+    </motion.div>
+  )
+}

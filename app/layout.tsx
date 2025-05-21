@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Raleway } from "next/font/google";
+import { Inter, Raleway, Poppins } from "next/font/google";
 import "./globals.css";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 const inter = Inter({ subsets: ["latin"] });
-const raleway = Raleway({ 
+const raleway = Poppins({ 
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
+  weight: ['300'],
 })
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={raleway.className}>{children}</body>
+      <body className={`${raleway.className} bg-[#c7c8c9]`}>{children}</body>
     </html>
   );
 }

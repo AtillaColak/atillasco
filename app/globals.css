@@ -10,7 +10,7 @@
 
 html {
   color: rgb(var(--foreground-rgb));
-  background-color: black; /* Fallback color */
+  background-color: #babbbc; /* Fallback color */
   background-image: linear-gradient(
     to bottom,
     rgb(var(--background-start-rgb)),
